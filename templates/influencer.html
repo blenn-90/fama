@@ -1,0 +1,51 @@
+{# templates/influencer.html #}
+
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-12">
+        <div class="card my-4">
+          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+            <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+              <h6 class="text-white text-capitalize ps-3">Influencers</h6>
+            </div>
+          </div>
+          <div class="card-body px-0 pb-2">
+            <div class="table-responsive p-0">
+
+              <table id="myTable" class="display">
+              </table>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+$(document).ready( function () {
+  $('#myTable').dataTable({ 
+    processing: true,
+    serverSide: true,
+    ajax:{url:"/api/influencer",dataSrc:""},
+    columns: [ 
+        { 'data': 'name' }, 
+        { 'data': 'platform' }, 
+        { 'data': 'category' }, 
+        { 'data': 'url' } 
+    ],
+    columnDefs: [
+        {title: 'Influencer', targets: 0, "render": function ( data, type, row, meta ) {return '<a href="http://localhost:8000/influencers/detail?rowid='+row.id+'" >'+row.name+'</a>';}},
+        {title: 'Platform', targets: 1},
+        {title: 'Category', targets: 2},
+        {title: 'Link', targets: 3, "render": function ( data, type, row, meta ) {return '<a target="_blank" href="'+row.url+'">Channel</a>';}}
+    ]
+    }); 
+
+} );
+
+</script>
+{% endblock content %}          
