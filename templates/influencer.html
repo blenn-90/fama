@@ -38,7 +38,7 @@ $(document).ready( function () {
         { 'data': 'url' } 
     ],
     columnDefs: [
-        {title: 'Influencer', targets: 0, "render": function ( data, type, row, meta ) {return '<a href="http://localhost:8000/influencers/detail?rowid='+row.id+'" >'+row.name+'</a>';}},
+        {title: 'Influencer', targets: 0, "render": function ( data, type, row, meta ) {return '/influencers/detail?rowid='+row.id+'" >'+row.name+'</a>';}},
         {title: 'Platform', targets: 1},
         {title: 'Category', targets: 2},
         {title: 'Link', targets: 3, "render": function ( data, type, row, meta ) {return '<a target="_blank" href="'+row.url+'">Channel</a>';}}

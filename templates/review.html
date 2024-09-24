@@ -46,7 +46,7 @@ var table = $('#myTable').DataTable({
         {title: 'Review', targets: 0},
         {title: 'Influencer', targets: 1},
         {title: 'Vote', targets: 2},
-        {title: 'Link', targets: 3, "render": function ( data, type, row, meta ) {return '<a href="'+row.url+'  target="_blank" ">Video</a>';}}
+        {title: 'Link', targets: 3, "render": function ( data, type, row, meta ) {return '<a target="_blank" href="'+row.url+' ">Video</a>';}}
     ]
     }); 
 } );

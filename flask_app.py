@@ -11,7 +11,12 @@ from db_alchemy import db
 print('-> initialize app')
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+
 db.init_app(app)
+app.register_blueprint(influencer_bp)
+app.register_blueprint(review_bp)
+app.register_blueprint(dashboard_bp)
+app.register_blueprint(test_bp)
 
 print('-> creating istance db')
 with app.app_context():
@@ -83,10 +88,6 @@ def influencer():
                             )
 
 if __name__ == "__main__":
-    app.register_blueprint(influencer_bp)
-    app.register_blueprint(review_bp)
-    app.register_blueprint(dashboard_bp)
-    app.register_blueprint(test_bp)
     serve(app, host="0.0.0.0", port=8000)
     print('->app started')
 
