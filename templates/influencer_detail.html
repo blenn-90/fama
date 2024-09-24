@@ -27,7 +27,7 @@
 
 <script>
 $(document).ready( function () {
-  $('#myTable').dataTable({ 
+  $('#myTable').dataTable({
     processing: true,
     serverSide: true,
     ajax:{url:"/api/review/detail?id={{id}}",dataSrc:""},

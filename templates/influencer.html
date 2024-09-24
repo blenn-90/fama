@@ -28,6 +28,7 @@
 <script>
 $(document).ready( function () {
   $('#myTable').dataTable({ 
+    paging:false,
     processing: true,
     serverSide: true,
     ajax:{url:"/api/influencer",dataSrc:""},
@@ -38,7 +39,7 @@ $(document).ready( function () {
         { 'data': 'url' } 
     ],
     columnDefs: [
-        {title: 'Influencer', targets: 0, "render": function ( data, type, row, meta ) {return '/influencers/detail?rowid='+row.id+'" >'+row.name+'</a>';}},
+        {title: 'Influencer', targets: 0, "render": function ( data, type, row, meta ) {return '<a href="/influencers/detail?rowid='+row.id+'">'+row.name+'</a>';}},
         {title: 'Platform', targets: 1},
         {title: 'Category', targets: 2},
         {title: 'Link', targets: 3, "render": function ( data, type, row, meta ) {return '<a target="_blank" href="'+row.url+'">Channel</a>';}}

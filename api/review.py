@@ -10,7 +10,7 @@ def get_all():
     print('--> /api/review api start')
 
     page = int(request.args.get("page", 1))
-    per_page = int(request.args.get("per_page", 10))
+    per_page = int(request.args.get("per_page", 500))
     offset = (page - 1) * per_page
     print("page " + str(page))
     reviews = Review.query.offset(offset).limit(per_page).all()

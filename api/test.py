@@ -35,7 +35,7 @@ def insert_data():
     db.session.add(user)
     db.session.commit()
 
-    with open('data/csv/frusciante_1kvoted.csv', encoding="utf8") as f:
+    with open('data/csv/frusciante_500voted.csv', encoding="utf8") as f:
         reader = csv.reader(f)
         data = list(reader)
         i=0
@@ -43,9 +43,9 @@ def insert_data():
             if i == 0:
                 i = 1
                 continue
-            name = row[6][9:]
+            name = row[2][9:]
             a,b,c = name.partition('- Minirece')
-            review = Review(a, 'https://www.youtube.com/watch?v=' + row[0], 1, row[7], row[5] + '/5' )
+            review = Review(a, 'https://www.youtube.com/watch?v=' + row[0], 1, row[3], row[1] + '/5' )
             db.session.add(review)
             db.session.commit()
    

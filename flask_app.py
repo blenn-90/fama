@@ -71,7 +71,7 @@ def influencer():
     # Use the hidden input value of id from the form to get the rowid
     id = request.args.get('rowid')
     print('---> influencer id='+id)
-    influencer = Influencer.query.get(id)
+    influencer = db.session.get(Influencer, id)
     heading = ("Influencer", "Vote", "Url")
     menu = [
             {'label':'Influencers','class':'active bg-gradient-primary', 'href':'/influencers', 'icon':'dashboard'}, 
